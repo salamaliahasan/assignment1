@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+<body>
+    <div id="form1" class="row">
+    <h1>Simple Calculator</h1>
+    
+      <div class="form-group col-md-4">
+        <label for="number1" class="form-label">Number1</label>
+        <input  type="text" class="form-control" name="number1" id="number1" >
+      </div>
+      <div class="form-group col-md-4">
+        <label for="operation" class="form-label">Operation</label>
+    <select name="operation" id="operation" class="form-select">
+        <option value="+">addition (+)</option>
+        <option value="-">subtraction (-)</option>
+        <option value="*">multiplication (*)</option>
+        <option value="/">division (/)</option>
+    </select> 
+</div>
+<div class="form-group col-md-4">
+    <label for="number2" class="form-label">Number2</label>
+    <input class="form-control" type="text" name="number2" id="number2" >
+</div>
+<div class="form-group col-md-2">
+    <button id="cal" class="btn btn-primary form-group" type="submit" onclick="calculation()">Calculate</button>
+</div>
+    <div>
+    <h1 id="demo"></h1>
+</div>
+    </div>
+    <script>
+        function calculation(){
+        let number1= document.getElementById("number1").value;
+        let number2= document.getElementById("number2").value;
+        let operation= document.getElementById("operation").value;
+        let number3;
+
+       
+        
+        number1=parseFloat(number1);
+        number2=parseFloat(number2);
+       
+        if(operation=="+"){
+            number3=number1 + number2;
+        }else if (operation=="-")
+        {
+            number3=number1 - number2;
+            
+        }else if(operation=="*")
+        {
+            number3=number1 * number2;
+        }else if(operation=="/")
+        {
+            if(number2==0){
+                number3="Please enter valid number";
+            }else{
+                number3=number1 / number2;
+            }
+           
+        }
+        if(isNaN(number3)){
+            number3="Please enter valid number";
+        }
+        document.getElementById("demo").innerHTML = number3;
+
+    }
+    </script>
+    <script src="js/bootstrap.bundle.js"></script>
+    
+
+</body>
+</html>
